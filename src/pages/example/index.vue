@@ -16,36 +16,34 @@
 
 <script>
   import Example from '@/components/example'
-  import axios from 'axios'
-  import load from '@/services'
+
   export default {
     name      : 'home',
     components: {
       Example
     },
-    mounted: function () {
+    mounted   : function () {
       this.getUser(1)
-      console.log(this.user)
     },
     data () {
       return {
-        msg: 'I am Home Page',
-        user: {},
+        msg : 'I am Home Page',
+        user: {}
       }
     },
-    methods:{
-      setMessage: function(){
+    methods   : {
+      setMessage: function () {
         this.$store.commit('SET_MESSAGE', 'Mutation')
       },
-      getUser: function(id){
-        load.users.getUser({id: id}).subscribe(
+      getUser   : function (id) {
+        this.$service.users.getUser({id: id}).subscribe(
           function (response) {
             this.user = response
           }.bind(this),
           function (errors) {
-            console.log('onError %s', errors);
+            console.log('onError %s', errors)
           }
-        );
+        )
       }
     }
   }
