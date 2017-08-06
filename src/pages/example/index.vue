@@ -36,13 +36,16 @@
         this.$store.commit('SET_MESSAGE', 'Mutation')
       },
       getUser   : function (id) {
+        this.$Progress.start()
         this.$service.users.getUser({id: id}).subscribe(
           function (response) {
             this.user = response
+            this.$Progress.finish()
           }.bind(this),
           function (errors) {
             console.log('onError %s', errors)
-          }
+            this.$Progress.fail()
+          }.bind(this)
         )
       }
     }

@@ -1,5 +1,6 @@
 import Rx from 'rx'
-import http from './../http';
+import http from './../http'
+
 export default {
   getUser: function (params) {
     return Rx.Observable.create(function (observer) {

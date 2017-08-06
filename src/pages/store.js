@@ -1,3 +1,3 @@
-import { store as example } from './example';
+import { store as example } from './example'
 
-export default { example };
+export default {example}
