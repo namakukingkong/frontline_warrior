@@ -7,6 +7,7 @@ import { App } from './pages'
 import router from './router'
 import store from './store'
 import service from '@/services'
+import mainjs from '@/assets/javascripts/main'
 
 localforage.config({
   name: 'warrior' // project name
